@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Student";
+}
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/Student.js"></script>
+<h2>Student</h2>
+<div ng-app="myApp">
+    <div ng-controller="myCntrl">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-control">
+                        <label class="form-label">Student Name :</label>
+                        <input type="text" class="form-control" ng-model="SName" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-control">
+                        <label class="form-label">Student Age :</label>
+                        <input type="text" class="form-control" ng-model="SAge" />
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-control">
+                        <label class="form-label">Department :</label>
+                        <input type="text" class="form-control" ng-model="SDpt" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <input type="submit" class="form-control" id="insertStd" value="Submit" ng-click="InsertStudent()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-init="GetAllStudent()">
+            <h4>Student Records</h4>
+            <table cellpadding="12" class="table table-bordered">
+             <thead>
+                 <tr>
+                     <th>ID</th>
+                     <th>Name</th>
+                     <th>Age</th>
+                     <th>Department</th>
+                     <th>Action</th>
+                 </tr>
+                 <tr ng-repeat="Std in Student">
+                     <td>{{Std.Id}}</td>
+                     <td>{{Std.Name}}</td>
+                     <td>{{Std.Age}}</td>
+                     <td>{{Std.Department}}</td>
+                     <td>
+                         <input type="button" ng-click="UpdateStudent(Std)" value="Update" class="btn btn-warning" />
+                         <input type="button" ng-click="DeleteStudent(Std)" value="Delete" class="btn btn-danger" />
+                     </td>
+                 </tr>
+             </thead>
+            </table>
+        </div>
+    </div>
+</div>
