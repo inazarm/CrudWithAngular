@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-model="myApp" ng-controller="myCntrl">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <label>User Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="txtEmail" id="txtEmail" ng-model="txtEmail" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label>Password</label>
+                <div class="input-group">
+                    <input type="password" class="form-control" name="txtPassword" id="txtPassword" ng-model="txtPassword" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <label></label>
+                <div class="input-group">
+                    <input type="button" class="btn btn-outline-primary" value="{{btnValue}}" ng-click="userLogin()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/Account.js"></script>
+}
+

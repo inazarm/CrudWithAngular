@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Student";
 }
 <script src="~/Scripts/angular.js"></script>
@@ -31,7 +30,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="input-group">
-                        <input type="submit" class="form-control" id="insertStd" value="Submit" ng-click="InsertStudent()" />
+                        <input type="submit" class="btn btn-outline-success" id="insertStd" value="{{btnValue}}" ng-click="InsertStudent()" />
                     </div>
                 </div>
             </div>
@@ -62,3 +61,8 @@
         </div>
     </div>
 </div>
+@section scripts{
+    <script>
+
+    </script>
+    }

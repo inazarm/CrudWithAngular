@@ -1,5 +1,6 @@
 ﻿var app = angular.module("myApp", [])
 app.controller("myCntrl", function ($scope, $http) {
+    $scope.btnValue = "Save";
     $scope.GetAllStudent = function () {
         $http({
             method: "get",
@@ -36,6 +37,7 @@ app.controller("myCntrl", function ($scope, $http) {
             })
         }
         else {
+            debugger
             $scope.student = {};
             $scope.student.Id = sessionStorage.getItem("SID");
             $scope.student.Name = $scope.SName;
@@ -58,12 +60,13 @@ app.controller("myCntrl", function ($scope, $http) {
     };
 
     $scope.UpdateStudent = function (Std) {
-
-        sessionStorage.setItem("SID", Std.ID)
-        $scope.SName = $scope.Name;
-        $scope.SAge = $scope.Age;
-        $scope.SDpt = $scope.Department;
-        document.getElementById("insertStd").setAttribute("value", "Update");
+        debugger
+        sessionStorage.setItem("SID", Std.Id)
+        $scope.SName = Std.Name;
+        $scope.SAge = Std.Age;
+        $scope.SDpt = Std.Department;
+        $scope.btnValue = "Update";
+        /*document.getElementById("insertStd").setAttribute("value", "Update");*/
     };
 
     $scope.DeleteStudent = function (Std) {
@@ -73,8 +76,13 @@ app.controller("myCntrl", function ($scope, $http) {
             datatype: "json",
             data: JSON.stringify(Std)
         }).then(function (response) {
-            alert("Delete Successfully");
+            //alert("Delete Successfully");
+            alert(response.data);
             $scope.GetAllStudent();
         })
     };
+
+    $scope.userLogin = function (Std) {
+
+    }
 })
